@@ -21,6 +21,42 @@ app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
 
 # In-memory activity database
 activities = {
+    "Tennis Court": {
+        "description": "Learn tennis techniques and participate in matches",
+        "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
+        "max_participants": 12,
+        "participants": []
+        },
+        "Volleyball Team": {
+        "description": "Join the school volleyball team and compete in tournaments",
+        "schedule": "Tuesdays and Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 14,
+        "participants": []
+        },
+        "Music Band": {
+        "description": "Learn to play musical instruments and perform in concerts",
+        "schedule": "Wednesdays and Fridays, 3:30 PM - 4:30 PM",
+        "max_participants": 25,
+        "participants": []
+        },
+        "Photography Club": {
+        "description": "Master photography techniques and exhibit your work",
+        "schedule": "Saturdays, 2:00 PM - 4:00 PM",
+        "max_participants": 15,
+        "participants": []
+        },
+        "Debate Club": {
+        "description": "Develop public speaking and critical thinking skills",
+        "schedule": "Mondays and Wednesdays, 3:30 PM - 4:30 PM",
+        "max_participants": 20,
+        "participants": []
+        },
+        "Robotics Team": {
+        "description": "Build and program robots for competitions",
+        "schedule": "Tuesdays, Thursdays, and Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 16,
+        "participants": []
+        },
     "Chess Club": {
         "description": "Learn strategies and compete in chess tournaments",
         "schedule": "Fridays, 3:30 PM - 5:00 PM",
@@ -64,56 +100,9 @@ activities = {
         "schedule": "Thursdays, 4:00 PM - 5:30 PM",
         "max_participants": 20,
         "participants": []
-    },
-    # Intellectual activities
-    "Math Olympiad": {
-        "description": "Prepare for math competitions and solve challenging problems",
-        "schedule": "Fridays, 2:00 PM - 3:30 PM",
-        "max_participants": 10,
-        "participants": []
-    },
-    "Debate Club": {
-        "description": "Develop public speaking and argumentation skills through competitive debates",
-        "schedule": "Mondays, 4:00 PM - 5:30 PM",
-        "max_participants": 12,
-        "participants": []
-        },
-        "Volleyball Team": {
-        "description": "Join the school volleyball team and participate in regional competitions",
-        "schedule": "Mondays and Wednesdays, 3:30 PM - 5:00 PM",
-        "max_participants": 14,
-        "participants": []
-        },
-        "Tennis Club": {
-        "description": "Learn tennis techniques and play competitive matches",
-        "schedule": "Tuesdays and Thursdays, 2:00 PM - 3:30 PM",
-        "max_participants": 10,
-        "participants": []
-        },
-        "Music Ensemble": {
-        "description": "Play instruments and perform in school concerts and events",
-        "schedule": "Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 18,
-        "participants": []
-        },
-        "Photography Club": {
-        "description": "Learn photography techniques and exhibit your work",
-        "schedule": "Saturdays, 10:00 AM - 12:00 PM",
-        "max_participants": 12,
-        "participants": []
-        },
-        "Robotics Club": {
-        "description": "Build and program robots for competitions and projects",
-        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
-        "max_participants": 15,
-        "participants": []
-        },
-    "Science Club": {
-        "description": "Conduct experiments and explore scientific concepts",
-        "schedule": "Wednesdays, 4:00 PM - 5:00 PM",
-        "max_participants": 14,
-        "participants": []
     }
+    
+    
 }
 
 
@@ -136,7 +125,10 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specific activity
     activity = activities[activity_name]
-
+    # Validate student is not already signed up 
+    if email in activity["participants"]:
+        raise HTTPException(status_code=400, detail="Student already signed up for this activity")
+    
     # Add student
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
