@@ -21,40 +21,40 @@ app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
 
 # In-memory activity database
 activities = {
-    "Tennis Court": {
-        "description": "Learn tennis techniques and participate in matches",
+    "Debate Club": {
+        "description": "Develop public speaking and critical thinking skills through competitive debate",
         "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
-        "max_participants": 12,
-        "participants": []
-        },
-        "Volleyball Team": {
-        "description": "Join the school volleyball team and compete in tournaments",
-        "schedule": "Tuesdays and Thursdays, 3:30 PM - 5:00 PM",
         "max_participants": 14,
         "participants": []
         },
+        "Math Olympiad": {
+        "description": "Solve challenging mathematical problems and compete in competitions",
+        "schedule": "Saturdays, 10:00 AM - 12:00 PM",
+        "max_participants": 12,
+        "participants": []
+        },
+        "Tennis Club": {
+        "description": "Learn tennis techniques and participate in friendly tournaments",
+        "schedule": "Tuesdays and Saturdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": []
+        },
+        "Swimming Team": {
+        "description": "Train in competitive swimming and participate in meets",
+        "schedule": "Wednesdays and Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 20,
+        "participants": []
+        },
         "Music Band": {
-        "description": "Learn to play musical instruments and perform in concerts",
-        "schedule": "Wednesdays and Fridays, 3:30 PM - 4:30 PM",
+        "description": "Play instruments and perform in school concerts and events",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
         "max_participants": 25,
         "participants": []
         },
         "Photography Club": {
-        "description": "Master photography techniques and exhibit your work",
-        "schedule": "Saturdays, 2:00 PM - 4:00 PM",
-        "max_participants": 15,
-        "participants": []
-        },
-        "Debate Club": {
-        "description": "Develop public speaking and critical thinking skills",
-        "schedule": "Mondays and Wednesdays, 3:30 PM - 4:30 PM",
-        "max_participants": 20,
-        "participants": []
-        },
-        "Robotics Team": {
-        "description": "Build and program robots for competitions",
-        "schedule": "Tuesdays, Thursdays, and Fridays, 4:00 PM - 5:30 PM",
-        "max_participants": 16,
+        "description": "Learn photography techniques and showcase creative work",
+        "schedule": "Mondays, 4:00 PM - 5:30 PM",
+        "max_participants": 12,
         "participants": []
         },
     "Chess Club": {
